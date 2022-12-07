@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA3A494C2940A16F00B8FBB1 /* WardrobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A494B2940A16F00B8FBB1 /* WardrobeViewController.swift */; };
+		EA3A494E2940A34000B8FBB1 /* Сlothes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A494D2940A34000B8FBB1 /* Сlothes.swift */; };
+		EA3A49502940A66F00B8FBB1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A494F2940A66F00B8FBB1 /* SettingsViewController.swift */; };
 		EADFDA772932320500B33E16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADFDA762932320500B33E16 /* AppDelegate.swift */; };
 		EADFDA792932320600B33E16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADFDA782932320600B33E16 /* SceneDelegate.swift */; };
 		EADFDA7B2932320600B33E16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADFDA7A2932320600B33E16 /* ViewController.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA3A494B2940A16F00B8FBB1 /* WardrobeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeViewController.swift; sourceTree = "<group>"; };
+		EA3A494D2940A34000B8FBB1 /* Сlothes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Сlothes.swift"; sourceTree = "<group>"; };
+		EA3A494F2940A66F00B8FBB1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EADFDA732932320500B33E16 /* Wardrobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wardrobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EADFDA762932320500B33E16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EADFDA782932320600B33E16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,8 +69,11 @@
 				EADFDA762932320500B33E16 /* AppDelegate.swift */,
 				EADFDA782932320600B33E16 /* SceneDelegate.swift */,
 				EADFDA7A2932320600B33E16 /* ViewController.swift */,
+				EA3A494B2940A16F00B8FBB1 /* WardrobeViewController.swift */,
+				EA3A494F2940A66F00B8FBB1 /* SettingsViewController.swift */,
 				EADFDA8C29324BBE00B33E16 /* Model.swift */,
 				EADFDA8A29324B5B00B33E16 /* CurrentWeather.swift */,
+				EA3A494D2940A34000B8FBB1 /* Сlothes.swift */,
 				EADFDA7C2932320600B33E16 /* Main.storyboard */,
 				EADFDA7F2932320800B33E16 /* Assets.xcassets */,
 				EADFDA812932320800B33E16 /* LaunchScreen.storyboard */,
@@ -144,11 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA3A494E2940A34000B8FBB1 /* Сlothes.swift in Sources */,
 				EADFDA8D29324BBE00B33E16 /* Model.swift in Sources */,
 				EADFDA7B2932320600B33E16 /* ViewController.swift in Sources */,
+				EA3A494C2940A16F00B8FBB1 /* WardrobeViewController.swift in Sources */,
 				EADFDA772932320500B33E16 /* AppDelegate.swift in Sources */,
 				EADFDA8B29324B5B00B33E16 /* CurrentWeather.swift in Sources */,
 				EADFDA792932320600B33E16 /* SceneDelegate.swift in Sources */,
+				EA3A49502940A66F00B8FBB1 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +307,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A87RVX8TPK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Wardrobe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -322,6 +335,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A87RVX8TPK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Wardrobe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

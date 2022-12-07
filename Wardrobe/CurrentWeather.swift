@@ -7,13 +7,11 @@
 
 import Foundation
 
-// MARK: - Weather
 struct Weather: Codable {
-    let latitude, longitude: Double
-    let generationtimeMS: Double
-    let utcOffsetSeconds: Double
+    let latitude, longitude, generationtimeMS: Double
+    let utcOffsetSeconds: Int
     let timezone, timezoneAbbreviation: String
-    let elevation: Double
+    let elevation: Int
     let hourlyUnits: HourlyUnits
     let hourly: Hourly
 
@@ -32,27 +30,37 @@ struct Weather: Codable {
 // MARK: - Hourly
 struct Hourly: Codable {
     let time: [String]
-    let temperature2M, windspeed10M: [Double]
-    let rain: [Double]
-    let snowfall: [Double]
+    let temperature2M, windspeed10M, rain: [Double]
+    let snowfall, cloudcover: [Double]
+    let precipitation: [Double]
 
     enum CodingKeys: String, CodingKey {
         case time
         case temperature2M = "temperature_2m"
         case windspeed10M = "windspeed_10m"
-        case rain, snowfall
+        case rain, snowfall, cloudcover, precipitation
     }
 }
 
 // MARK: - HourlyUnits
 struct HourlyUnits: Codable {
     let time, temperature2M, windspeed10M, rain: String
-    let snowfall: String
-
+    let snowfall, cloudcover, precipitation: String
+    
     enum CodingKeys: String, CodingKey {
         case time
         case temperature2M = "temperature_2m"
         case windspeed10M = "windspeed_10m"
-        case rain, snowfall
+        case rain, snowfall, cloudcover, precipitation
     }
+}
+
+struct HourWeather: Hashable {
+    let time: String
+    let temperature2M,
+        snowfall,
+        cloudcover,
+        precipitation,
+        windspeed10M,
+        rain: Double
 }
