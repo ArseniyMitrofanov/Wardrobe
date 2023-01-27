@@ -11,7 +11,7 @@
         <!--Weather-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Wardrobe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Wardrobe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-634" y="-712"/>
         </scene>
-        <!--Wardrobe-->
+        <!--Wardrobe View Controller-->
         <scene sceneID="CxD-LK-H1k">
             <objects>
                 <viewController storyboardIdentifier="WardrobeViewController" id="7Ra-19-8yM" customClass="WardrobeViewController" customModule="Wardrobe" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,12 +34,11 @@
                         <viewLayoutGuide key="safeArea" id="dtB-Lc-dlR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Wardrobe" image="tshirt" catalog="system" id="vNI-Iz-QR5"/>
                     <navigationItem key="navigationItem" id="RU4-s2-GDd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mE3-jY-vvA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="185" y="-712"/>
+            <point key="canvasLocation" x="440" y="-1552.6066350710901"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Gf8-C5-IzR">
@@ -55,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndn-bj-1x9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026" y="-712"/>
+            <point key="canvasLocation" x="1752" y="-702"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uoD-SC-VzO">
@@ -70,13 +69,32 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="QdA-CS-qjm"/>
-                        <segue destination="7Ra-19-8yM" kind="relationship" relationship="viewControllers" id="Ry8-I1-uWo"/>
+                        <segue destination="FIt-at-4R3" kind="relationship" relationship="viewControllers" id="Ry8-I1-uWo"/>
                         <segue destination="M91-eb-C2b" kind="relationship" relationship="viewControllers" id="EGJ-Li-F6b"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DZI-RB-jGQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="184.61538461538461" y="6.3981042654028437"/>
+            <point key="canvasLocation" x="89" y="13"/>
+        </scene>
+        <!--Wardrobe-->
+        <scene sceneID="1Nk-Gj-HaL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FIt-at-4R3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Wardrobe" image="tshirt" catalog="system" id="vNI-Iz-QR5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Gw-5F-EGB">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7Ra-19-8yM" kind="relationship" relationship="rootViewController" id="7HG-hr-FzL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PaG-hI-Mge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="495" y="-831"/>
         </scene>
     </scenes>
     <resources>

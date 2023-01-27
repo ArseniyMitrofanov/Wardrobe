@@ -9,9 +9,15 @@ import UIKit
 
 enum Section: Hashable {
     case main
+    case hat
+    case outerwear
+    case sweater
+    case tshirt
+    case trousers
+    case shoes
 }
 
-class ViewController: UIViewController{
+class WeatherViewController: UIViewController{
     let locationWeatherService = LocationWeatherService()
     let currentTemperatureLabel: UILabel = {
         let label = UILabel()
@@ -42,7 +48,7 @@ class ViewController: UIViewController{
     }()
     let weatherStackView: UIStackView = {
         let stackView = UIStackView()
-
+        
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -92,7 +98,7 @@ class ViewController: UIViewController{
         let precipitation = UILabel()
         precipitation.numberOfLines = 2
         precipitation.text = "Осадки \nмм"
-       weatherStackView.addArrangedSubview(time)
+        weatherStackView.addArrangedSubview(time)
         weatherStackView.addArrangedSubview(temperature)
         weatherStackView.addArrangedSubview(windSpeed)
         weatherStackView.addArrangedSubview(precipitation)
@@ -135,9 +141,10 @@ class ViewController: UIViewController{
             weatherCollectionView.bottomAnchor.constraint(equalTo: showWardrobeButton.topAnchor, constant: -10),
             showWardrobeButton.leadingAnchor.constraint(equalTo: currentTemperatureLabel.leadingAnchor),
             showWardrobeButton.trailingAnchor.constraint(equalTo: currentWeatherLabel.trailingAnchor),
-            showWardrobeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -110),
+            showWardrobeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             showWardrobeButton.heightAnchor.constraint(equalToConstant: 65)
         ])
+        
         
     }
     func generateCollectionViewLayout() -> UICollectionViewLayout {
@@ -146,7 +153,7 @@ class ViewController: UIViewController{
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/4), heightDimension: .fractionalHeight(1))
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
             return section
@@ -158,8 +165,7 @@ class ViewController: UIViewController{
         
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, HourWeather> { cell, indexPath, hourWeather in
             if !cell.subviews.isEmpty{
-                cell.contentView.subviews.forEach {$0.removeFromSuperview()
-}
+                cell.contentView.subviews.forEach {$0.removeFromSuperview()}
             }
             let stackView = UIStackView()
             stackView.axis = .vertical
@@ -203,11 +209,10 @@ class ViewController: UIViewController{
         weatherDataSourse.applySnapshotUsingReloadData(snapshot)
     }
 }
-//filemanager
-extension ViewController: LocationWeatherServiceDelegate {
+
+extension WeatherViewController: LocationWeatherServiceDelegate {
     func didFetchWeather(hoursWeather: [HourWeather]){
         loadData(hoursWeather: hoursWeather)
-        print(hoursWeather)
         //currentTemperatureLabel
         let currentTime   = (Calendar.current.component(.hour, from: Date()))
         self.currentTemperatureLabel.text = String(hoursWeather[currentTime].temperature2M) + "℃"

@@ -1,8 +1,8 @@
 //
-//  Model.swift
+//  LocationWeatherService.swift
 //  Wardrobe
 //
-//  Created by Арсений on 26.11.22.
+//  Created by Арсений on 27.01.23.
 //
 
 import Foundation
