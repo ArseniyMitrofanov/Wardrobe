@@ -15,6 +15,7 @@
 		EA6D7E4D2971E5C700BF5377 /* AddClothesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D7E4C2971E5C700BF5377 /* AddClothesViewController.swift */; };
 		EA6E7EF92983EB7700A5C0AB /* LocationWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6E7EF82983EB7700A5C0AB /* LocationWeatherService.swift */; };
 		EA6E7EFB2983EC3E00A5C0AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6E7EFA2983EC3E00A5C0AB /* Extensions.swift */; };
+		EA6E7EFD298436B900A5C0AB /* SortedWardrobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6E7EFC298436B900A5C0AB /* SortedWardrobeViewController.swift */; };
 		EADFDA772932320500B33E16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADFDA762932320500B33E16 /* AppDelegate.swift */; };
 		EADFDA792932320600B33E16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADFDA782932320600B33E16 /* SceneDelegate.swift */; };
 		EADFDA7B2932320600B33E16 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADFDA7A2932320600B33E16 /* WeatherViewController.swift */; };
@@ -34,6 +35,7 @@
 		EA6D7E4C2971E5C700BF5377 /* AddClothesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothesViewController.swift; sourceTree = "<group>"; };
 		EA6E7EF82983EB7700A5C0AB /* LocationWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWeatherService.swift; sourceTree = "<group>"; };
 		EA6E7EFA2983EC3E00A5C0AB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EA6E7EFC298436B900A5C0AB /* SortedWardrobeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedWardrobeViewController.swift; sourceTree = "<group>"; };
 		EADFDA732932320500B33E16 /* Wardrobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wardrobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EADFDA762932320500B33E16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EADFDA782932320600B33E16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				EA6E7EF82983EB7700A5C0AB /* LocationWeatherService.swift */,
 				EADFDA8A29324B5B00B33E16 /* CurrentWeather.swift */,
 				EA3A494B2940A16F00B8FBB1 /* WardrobeViewController.swift */,
+				EA6E7EFC298436B900A5C0AB /* SortedWardrobeViewController.swift */,
 				EA4005F72949DD81009DE12C /* WardrobeService.swift */,
 				EA6D7E4C2971E5C700BF5377 /* AddClothesViewController.swift */,
 				EA52EDDE2976FB2500573EB2 /* EditClothesViewController.swift */,
@@ -172,6 +175,7 @@
 				EA3A494E2940A34000B8FBB1 /* Сlothes.swift in Sources */,
 				EADFDA7B2932320600B33E16 /* WeatherViewController.swift in Sources */,
 				EA3A494C2940A16F00B8FBB1 /* WardrobeViewController.swift in Sources */,
+				EA6E7EFD298436B900A5C0AB /* SortedWardrobeViewController.swift in Sources */,
 				EADFDA772932320500B33E16 /* AppDelegate.swift in Sources */,
 				EADFDA8B29324B5B00B33E16 /* CurrentWeather.swift in Sources */,
 				EA4005F82949DD81009DE12C /* WardrobeService.swift in Sources */,

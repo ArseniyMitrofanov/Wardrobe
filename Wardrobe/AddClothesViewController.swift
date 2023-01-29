@@ -61,7 +61,7 @@ class AddClothesViewController: UIViewController, UITextFieldDelegate, UIPickerV
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    let eTypePickerData: [String] = ["hat", "outerwear", "sweater", "tshirt", "trousers", "shoes"]
+    let eTypePickerData: [String] = ["Головной убор", "Верхняя одежда", "Кофта", "Майка", "Штаны", "Обувь"]
     let temperatureStackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -152,7 +152,7 @@ class AddClothesViewController: UIViewController, UITextFieldDelegate, UIPickerV
             imageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10),
             imageView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             imageView.widthAnchor.constraint(equalToConstant: 150),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.25),
             photoButton.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
             photoButton.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 22),
             photoButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10),

@@ -18,6 +18,7 @@ enum Section: Hashable {
 }
 
 class WeatherViewController: UIViewController{
+    var currentTemperature: Double = 0
     let locationWeatherService = LocationWeatherService()
     let currentTemperatureLabel: UILabel = {
         let label = UILabel()
@@ -76,7 +77,7 @@ class WeatherViewController: UIViewController{
         
         weatherCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: generateCollectionViewLayout())
         weatherCollectionView?.translatesAutoresizingMaskIntoConstraints = false
-        
+        showWardrobeButton.addTarget(self, action: #selector(showWardrobeButtonTapped), for: .touchUpInside)
         locationWeatherService.delegate = self
         locationWeatherService.getLocation()
         makeConstraints()
@@ -160,7 +161,6 @@ class WeatherViewController: UIViewController{
         }
         return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
     }
-    
     func createDataSource() {
         
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, HourWeather> { cell, indexPath, hourWeather in
@@ -202,21 +202,26 @@ class WeatherViewController: UIViewController{
         }
     }
     func loadData(hoursWeather: [HourWeather]) {
-        print(hoursWeather.count)
         var snapshot = NSDiffableDataSourceSnapshot<Section, HourWeather>()
         snapshot.appendSections([.main])
         snapshot.appendItems(hoursWeather, toSection: .main)
         weatherDataSourse.applySnapshotUsingReloadData(snapshot)
+    }
+    @objc func showWardrobeButtonTapped(){
+        let vc = SortedWardrobeViewController()
+        vc.view.backgroundColor = .white
+        vc.currentTemperature = self.currentTemperature
+        vc.view.frame.origin = CGPoint(x: 0, y: 100)
+        present(vc, animated: true)
     }
 }
 
 extension WeatherViewController: LocationWeatherServiceDelegate {
     func didFetchWeather(hoursWeather: [HourWeather]){
         loadData(hoursWeather: hoursWeather)
-        //currentTemperatureLabel
         let currentTime   = (Calendar.current.component(.hour, from: Date()))
-        self.currentTemperatureLabel.text = String(hoursWeather[currentTime].temperature2M) + "℃"
-        //currentWeatherLabel
+        currentTemperature = hoursWeather[currentTime].temperature2M
+        self.currentTemperatureLabel.text = String(currentTemperature) + "℃"
         switch hoursWeather[currentTime].cloudcover{
         case 0...25: currentWeatherLabel.text = "Ясно"
         case 26...75:  currentWeatherLabel.text = "Переменная  облачность"
@@ -226,7 +231,7 @@ extension WeatherViewController: LocationWeatherServiceDelegate {
     }
     
     func didFailToFetchWeather(with error: Error) {
-        
+        //warning
     }
     
 }

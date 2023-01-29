@@ -12,15 +12,15 @@ class WardrobeViewController: UIViewController, UICollectionViewDelegate {
     let addClothesButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Добавить одежду", for: .normal)
+        button.setTitle("Загрузка ...", for: .normal)
         button.layer.cornerRadius = 20
         button.backgroundColor = .red
         button.titleLabel?.font =  .systemFont(ofSize: 30)
+        button.isEnabled = false
         return button
     }()
     
     var wardrobeDataSourse: UICollectionViewDiffableDataSource<Section, Clothes>!
-//    let wardrobeService = WardrobeService()
     override func viewDidLoad() {
         super.viewDidLoad()
         addClothesButton.addTarget(self, action: #selector(addClothesButtonTapped), for: .touchUpInside)
@@ -30,8 +30,10 @@ class WardrobeViewController: UIViewController, UICollectionViewDelegate {
         makeConstraints()
         createDataSource()
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
     loadData()
+        addClothesButton.setTitle("Добавить одежду", for: .normal)
+        addClothesButton.isEnabled = true
     }
     func loadData() {
         let clothesMatrix: [[Clothes]] = getAndSortArrayClothes()
@@ -138,8 +140,5 @@ class WardrobeViewController: UIViewController, UICollectionViewDelegate {
 
 }
 
-extension WardrobeViewController: WardrobeServiceDelegate{//надо ли??????????????????????????????
-    
-}
 
 

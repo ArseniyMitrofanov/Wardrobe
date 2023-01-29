@@ -58,7 +58,7 @@ class EditClothesViewController: UIViewController, UITextFieldDelegate, UIPicker
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    let eTypePickerData: [String] = ["hat", "outerwear", "sweater", "tshirt", "trousers", "shoes"]
+    let eTypePickerData: [String] = ["Головной убор", "Верхняя одежда", "Кофта", "Майка", "Штаны", "Обувь"]
     let temperatureStackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -114,6 +114,12 @@ class EditClothesViewController: UIViewController, UITextFieldDelegate, UIPicker
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let deleteBarButtonItem: UIBarButtonItem = {
+            let item = UIBarButtonItem(title: "Удалить", style: .plain, target: self, action: #selector(deleteClothes))
+            item.tintColor = .red
+            return item
+        }()
+        navigationItem.setRightBarButton(deleteBarButtonItem, animated: false)
         fetchClothes()
         makeConstraints()
         nameTextField.delegate = self
@@ -137,7 +143,7 @@ class EditClothesViewController: UIViewController, UITextFieldDelegate, UIPicker
             default:
                 break
             }
-           
+            
         }
         eTypePicker.dataSource = self
         photoButton.addTarget(self, action: #selector(photoButtonTapped), for: .touchUpInside)
@@ -194,7 +200,7 @@ class EditClothesViewController: UIViewController, UITextFieldDelegate, UIPicker
         temperatureStackView.addArrangedSubview(mediumLabel)
         temperatureStackView.addArrangedSubview(highTemperatureTextFiel)
         temperatureStackView.addArrangedSubview(highLabel)
-      
+        
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10),
             imageView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
@@ -225,7 +231,7 @@ class EditClothesViewController: UIViewController, UITextFieldDelegate, UIPicker
             saveClothesButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             saveClothesButton.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 22),
             saveClothesButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -22),
-     ])
+        ])
         
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -276,6 +282,27 @@ class EditClothesViewController: UIViewController, UITextFieldDelegate, UIPicker
             self.view.frame.origin.y += keyboardFrame.height
         }
     }
+    @objc func deleteClothes(){
+        let alert = UIAlertController(title: "Удалить одежду?", message: "Вы уверены,что хотите удалить этот предмет одежды? Отменить это действие будет невозможно.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Отменить", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { [self]_ in
+            if self.indexPath != nil{
+                var matrix = self.getAndSortArrayClothes()
+                matrix[self.indexPath!.section].remove(at: indexPath!.item)
+                var array:[Clothes] = []
+                for i in matrix{
+                    array.append(contentsOf: i)
+                }
+                WardrobeService.defaultWardrobeService.editClothes(arrayClothes: array)
+                navigationController?.popViewController(animated: true)
+            }else{
+                print("error")
+            }
+            navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     @objc func saveClothesButtonTapped(){
         if indexPath != nil{
             var matrix = getAndSortArrayClothes()
@@ -292,7 +319,6 @@ class EditClothesViewController: UIViewController, UITextFieldDelegate, UIPicker
         
     }
 }
-
 extension EditClothesViewController: ImagePickerDelegate {
     
     func imagePicker(_ imagePicker: ImagePicker, didSelect image: UIImage) {
