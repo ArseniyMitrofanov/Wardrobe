@@ -12,10 +12,10 @@ class SortedWardrobeViewController: WardrobeViewController {
     let dismissButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("\\/", for: .normal)
-        button.layer.cornerRadius = 20
-        button.backgroundColor = .red
-        button.titleLabel?.font =  .systemFont(ofSize: 30)
+        button.setTitle("⬇︎", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        button.layer.cornerRadius = 50
+        button.titleLabel?.font =  .systemFont(ofSize: 100)
         return button
     }()
     override func viewDidLoad() {
